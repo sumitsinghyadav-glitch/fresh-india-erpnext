@@ -1,0 +1,221 @@
+[
+ {
+  "docstatus": 0,
+  "doctype": "Role Profile",
+  "name": "Accounts",
+  "role_profile": "Accounts",
+  "roles": [
+   {
+    "docstatus": 0,
+    "doctype": "Has Role",
+    "name": "9l5gk8tc0s",
+    "parent": "Accounts",
+    "parentfield": "roles",
+    "parenttype": "Role Profile",
+    "role": "Accounts User"
+   },
+   {
+    "docstatus": 0,
+    "doctype": "Has Role",
+    "name": "9l5goc8trf",
+    "parent": "Accounts",
+    "parentfield": "roles",
+    "parenttype": "Role Profile",
+    "role": "Accounts Manager"
+   }
+  ]
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Role Profile",
+  "name": "HR",
+  "role_profile": "HR",
+  "roles": [
+   {
+    "docstatus": 0,
+    "doctype": "Has Role",
+    "name": "8ompdjinlb",
+    "parent": "HR",
+    "parentfield": "roles",
+    "parenttype": "Role Profile",
+    "role": "HR User"
+   },
+   {
+    "docstatus": 0,
+    "doctype": "Has Role",
+    "name": "8om7l1e3pu",
+    "parent": "HR",
+    "parentfield": "roles",
+    "parenttype": "Role Profile",
+    "role": "HR Manager"
+   },
+   {
+    "docstatus": 0,
+    "doctype": "Has Role",
+    "name": "8omnhjtl2g",
+    "parent": "HR",
+    "parentfield": "roles",
+    "parenttype": "Role Profile",
+    "role": "Leave Approver"
+   },
+   {
+    "docstatus": 0,
+    "doctype": "Has Role",
+    "name": "8ome71j4en",
+    "parent": "HR",
+    "parentfield": "roles",
+    "parenttype": "Role Profile",
+    "role": "Expense Approver"
+   }
+  ]
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Role Profile",
+  "name": "Inventory",
+  "role_profile": "Inventory",
+  "roles": [
+   {
+    "docstatus": 0,
+    "doctype": "Has Role",
+    "name": "9l5ut50241",
+    "parent": "Inventory",
+    "parentfield": "roles",
+    "parenttype": "Role Profile",
+    "role": "Stock User"
+   },
+   {
+    "docstatus": 0,
+    "doctype": "Has Role",
+    "name": "9l538jnoh8",
+    "parent": "Inventory",
+    "parentfield": "roles",
+    "parenttype": "Role Profile",
+    "role": "Stock Manager"
+   },
+   {
+    "docstatus": 0,
+    "doctype": "Has Role",
+    "name": "9l5nqkintq",
+    "parent": "Inventory",
+    "parentfield": "roles",
+    "parenttype": "Role Profile",
+    "role": "Item Manager"
+   }
+  ]
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Role Profile",
+  "name": "Manufacturing",
+  "role_profile": "Manufacturing",
+  "roles": [
+   {
+    "docstatus": 0,
+    "doctype": "Has Role",
+    "name": "9l5fja70ko",
+    "parent": "Manufacturing",
+    "parentfield": "roles",
+    "parenttype": "Role Profile",
+    "role": "Stock User"
+   },
+   {
+    "docstatus": 0,
+    "doctype": "Has Role",
+    "name": "9l53j47448",
+    "parent": "Manufacturing",
+    "parentfield": "roles",
+    "parenttype": "Role Profile",
+    "role": "Manufacturing User"
+   },
+   {
+    "docstatus": 0,
+    "doctype": "Has Role",
+    "name": "9l57g7ooua",
+    "parent": "Manufacturing",
+    "parentfield": "roles",
+    "parenttype": "Role Profile",
+    "role": "Manufacturing Manager"
+   }
+  ]
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Role Profile",
+  "name": "Purchase",
+  "role_profile": "Purchase",
+  "roles": [
+   {
+    "docstatus": 0,
+    "doctype": "Has Role",
+    "name": "9l5p8eptgh",
+    "parent": "Purchase",
+    "parentfield": "roles",
+    "parenttype": "Role Profile",
+    "role": "Item Manager"
+   },
+   {
+    "docstatus": 0,
+    "doctype": "Has Role",
+    "name": "9l5oo5on3o",
+    "parent": "Purchase",
+    "parentfield": "roles",
+    "parenttype": "Role Profile",
+    "role": "Stock User"
+   },
+   {
+    "docstatus": 0,
+    "doctype": "Has Role",
+    "name": "9l504tonu8",
+    "parent": "Purchase",
+    "parentfield": "roles",
+    "parenttype": "Role Profile",
+    "role": "Purchase User"
+   },
+   {
+    "docstatus": 0,
+    "doctype": "Has Role",
+    "name": "9l5oeq8ar2",
+    "parent": "Purchase",
+    "parentfield": "roles",
+    "parenttype": "Role Profile",
+    "role": "Purchase Manager"
+   }
+  ]
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Role Profile",
+  "name": "Sales",
+  "role_profile": "Sales",
+  "roles": [
+   {
+    "docstatus": 0,
+    "doctype": "Has Role",
+    "name": "9l5230m0jn",
+    "parent": "Sales",
+    "parentfield": "roles",
+    "parenttype": "Role Profile",
+    "role": "Sales User"
+   },
+   {
+    "docstatus": 0,
+    "doctype": "Has Role",
+    "name": "9l5tp58h0n",
+    "parent": "Sales",
+    "parentfield": "roles",
+    "parenttype": "Role Profile",
+    "role": "Stock User"
+   },
+   {
+    "docstatus": 0,
+    "doctype": "Has Role",
+    "name": "9l5hdoqnel",
+    "parent": "Sales",
+    "parentfield": "roles",
+    "parenttype": "Role Profile",
+    "role": "Sales Manager"
+   }
+  ]
+ }
+]

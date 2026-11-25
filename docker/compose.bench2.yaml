@@ -1,0 +1,32 @@
+﻿# extra_hosts: wkhtmltopdf (PDF generation) fetches assets from the site's host_name
+# (http://mysite2.localhost:8081), which must resolve inside the containers -> route it to the Docker host.
+x-site-host: &site-host
+  extra_hosts:
+    - "mysite2.localhost:192.168.65.254"  # Docker Desktop host (IPv4); host-gateway resolves to unreachable IPv6
+
+services:
+  configurator:
+    image: erpnext-storevision:latest
+    pull_policy: never
+  backend:
+    image: erpnext-storevision:latest
+    pull_policy: never
+    <<: *site-host
+  frontend:
+    image: erpnext-storevision:latest
+    pull_policy: never
+  websocket:
+    image: erpnext-storevision:latest
+    pull_policy: never
+  queue-short:
+    image: erpnext-storevision:latest
+    pull_policy: never
+    <<: *site-host
+  queue-long:
+    image: erpnext-storevision:latest
+    pull_policy: never
+    <<: *site-host
+  scheduler:
+    image: erpnext-storevision:latest
+    pull_policy: never
+    <<: *site-host

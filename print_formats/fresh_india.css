@@ -1,0 +1,112 @@
+/* Fresh India print format - palette from the logo. wkhtmltopdf-safe (no flex/grid). */
+.print-format { padding: 0 !important; max-width: none !important; width: 100% !important; }
+.letter-head, .letter-head-footer { display: none !important; }
+.fis { font-family: "Helvetica Neue", Helvetica, Arial, "DejaVu Sans", sans-serif; font-size: 10.5px; color: #2d3436; position: relative; }
+.fis table { width: 100%; border-collapse: collapse; }
+.fis td, .fis th { vertical-align: top; }
+.fis .r { text-align: right; }
+.fis .c { text-align: center; }
+.fis .b { font-weight: bold; }
+.fis .items tr, .fis .hsn tr, .fis .totals tr { page-break-inside: avoid; }
+.fis .items { table-layout: fixed; }
+.fis .items td.r, .fis .items td.c, .fis .items th.r { white-space: nowrap; }
+.fis .items td.r { font-size: 9px; }
+.fis .totals td.r { font-size: 11px; }
+.fis .totals td { padding: 6px 8px; }
+.fis .items td { font-size: 9.5px; }
+
+/* watermark for draft / cancelled */
+.fis .watermark { position: absolute; top: 300px; left: 0; width: 100%; text-align: center; font-size: 110px; font-weight: bold;
+  color: rgba(214, 48, 49, 0.10); -webkit-transform: rotate(-28deg); transform: rotate(-28deg); z-index: 0; letter-spacing: 8px; }
+
+/* header */
+.fis .hdr td { vertical-align: middle; }
+.fis .logo-cell { width: 132px; padding-right: 14px; }
+.fis .logo { width: 128px; display: block; }
+.fis .co-name { font-size: 22px; font-weight: bold; color: #1f7a33; letter-spacing: .3px; }
+.fis .co-addr { color: #555; margin: 3px 0 4px; line-height: 1.35; }
+.fis .co-ids { color: #444; font-size: 9.5px; line-height: 1.5; }
+.fis .title-cell { width: 200px; text-align: right; }
+.fis .doc-title { display: inline-block; white-space: nowrap; background: #F47B20; color: #fff; font-size: 17px; font-weight: bold;
+  letter-spacing: 1.5px; padding: 7px 14px; border-radius: 4px; }
+.fis .doc-sub { font-size: 9px; color: #888; margin-top: 4px; text-transform: uppercase; letter-spacing: 1px; }
+.fis .stamp { display: inline-block; margin-top: 6px; padding: 3px 10px; border: 1.5px solid; border-radius: 12px;
+  font-size: 10px; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; }
+.fis .stamp.ok { color: #1f7a33; border-color: #2E9B3E; background: #EEF8EF; }
+.fis .stamp.bad { color: #c0392b; border-color: #e74c3c; background: #fdecea; }
+.fis .stamp.warn { color: #b9600f; border-color: #F47B20; background: #FFF4EA; }
+.fis .stamp.muted { color: #636e72; border-color: #b2bec3; background: #f5f6f7; }
+
+/* two-tone brand bar */
+.fis .bar { height: 5px; background: #2E9B3E; margin: 8px 0 8px; border-radius: 3px; }
+.fis .bar-o { height: 5px; width: 38%; background: #F47B20; border-radius: 3px 0 0 3px; }
+
+/* meta strip */
+.fis .meta { background: #FFF4EA; border: 1px solid #fbd9bd; border-radius: 4px; }
+.fis .meta td { padding: 7px 10px; border-right: 1px solid #fbd9bd; }
+.fis .meta td:last-child { border-right: 0; }
+.fis .lbl { display: block; font-size: 8.5px; text-transform: uppercase; letter-spacing: .8px; color: #b9600f; margin-bottom: 2px; }
+.fis .val { font-weight: bold; font-size: 11px; color: #2d3436; }
+
+/* parties */
+.fis .parties { margin-top: 8px; }
+.fis .party { width: 49%; border: 1px solid #cfe9d3; border-radius: 4px; padding: 0 0 8px; }
+.fis .gap { width: 2%; }
+.fis .party-h { background: #EEF8EF; color: #1f7a33; font-weight: bold; text-transform: uppercase; font-size: 9px;
+  letter-spacing: 1px; padding: 5px 10px; border-bottom: 1px solid #cfe9d3; margin-bottom: 6px; }
+.fis .party-name { font-weight: bold; font-size: 12.5px; padding: 0 10px; }
+.fis .party-addr { color: #555; padding: 2px 10px 4px; line-height: 1.35; }
+.fis .party-ids { padding: 1px 10px; font-size: 9.5px; color: #444; }
+
+/* items */
+.fis .items { margin-top: 10px; }
+.fis .items th { background: #2E9B3E; color: #fff; font-size: 9px; text-transform: uppercase; letter-spacing: .5px;
+  padding: 6px 4px; font-weight: bold; }
+.fis .items td { padding: 5px 4px; border-bottom: 1px solid #e8ece9; }
+.fis .items tbody tr:nth-child(even) td { background: #f7fbf7; }
+.fis .items .idx { color: #999; }
+.fis .it-name { font-weight: bold; color: #2d3436; }
+.fis .it-code { font-size: 8.5px; color: #888; margin-top: 1px; }
+.fis .uom { font-size: 8.5px; color: #888; }
+.fis .disc { color: #c0392b; }
+.fis .items tfoot td { font-weight: bold; background: #EEF8EF; border-top: 2px solid #2E9B3E; border-bottom: 0; padding: 6px 4px; white-space: nowrap; }
+
+/* summary */
+.fis .summary { margin-top: 10px; table-layout: fixed; }
+.fis .foot { table-layout: fixed; }
+.fis .stamp { white-space: nowrap; }
+.fis .sum-left { width: 48%; }
+.fis .sum-right { width: 50%; }
+.fis .words { background: #f7fbf7; border-left: 3px solid #2E9B3E; padding: 6px 10px; font-weight: bold; margin-bottom: 8px; }
+.fis .words .lbl { color: #1f7a33; }
+.fis .sec-h { color: #1f7a33; font-weight: bold; text-transform: uppercase; font-size: 9px; letter-spacing: 1px; margin: 8px 0 3px; }
+.fis .hsn th { background: #f1f3f2; color: #555; font-size: 8.5px; text-transform: uppercase; padding: 4px 6px; border-bottom: 1px solid #dfe4e1; }
+.fis .hsn td { padding: 4px 6px; border-bottom: 1px solid #eef1ef; font-size: 9.5px; }
+.fis .kv td { padding: 2px 6px; font-size: 9.5px; }
+.fis .kv td:first-child { color: #888; width: 32%; }
+.fis .totals td { padding: 6px 10px; border-bottom: 1px solid #eef1ef; white-space: nowrap; }
+.fis .totals tr.neg td { color: #c0392b; }
+.fis .totals tr.grand td { background: #F47B20; color: #fff; font-size: 14px; font-weight: bold; border: 0; padding: 9px 10px; }
+.fis .totals tr.due td { background: #fdecea; color: #c0392b; font-weight: bold; font-size: 12px; }
+.fis .totals tr.due.zero td { background: #EEF8EF; color: #1f7a33; }
+
+/* yellow highlight for the final order value (Purchase Order + Sales Order) */
+.fis .totals tr.net td { background: #fffbe0; color: #2d3436; font-weight: bold; font-size: 12px; border-bottom: 1px solid #f5d84a; }
+.fis .totals tr.net td:first-child { border-left: 4px solid #f5c400; }
+.fis .totals tr.grand.hl td { background: #ffe14d; color: #1d2b24; font-size: 13px; border-top: 2px solid #f5c400; border-bottom: 2px solid #f5c400; }
+.fis .totals tr.grand.hl td:first-child { border-left: 4px solid #e0a800; }
+.fis .totals tr.grand.hl td:last-child { border-right: 4px solid #e0a800; }
+.fis .words.hl { background: #fffbe0; border-left-color: #f5c400; }
+.fis .words.hl .lbl { color: #9a7400; }
+
+/* terms + signature */
+.fis .foot { margin-top: 10px; page-break-inside: avoid; border-top: 1px dashed #cfd8d3; }
+.fis .terms { width: 60%; padding-top: 6px; }
+.fis .terms-body { margin: 0; padding-left: 16px; color: #555; font-size: 9px; line-height: 1.55; }
+.fis .sign { width: 40%; text-align: right; padding-top: 10px; }
+.fis .sign-box { display: inline-block; width: 44%; text-align: center; font-size: 9.5px; color: #555; margin-left: 3%; vertical-align: bottom; }
+.fis .sign-for { font-weight: bold; color: #1f7a33; margin-bottom: 28px; font-size: 10px; }
+.fis .sign-line { border-top: 1px solid #555; margin: 36px 0 4px; }
+.fis .sign-for + .sign-line { margin-top: 0; }
+.fis .thanks { text-align: center; margin-top: 10px; color: #F47B20; font-weight: bold; font-size: 12px; letter-spacing: .5px; }
+.fis .gen { color: #aaa; font-size: 8.5px; font-weight: normal; letter-spacing: 0; }

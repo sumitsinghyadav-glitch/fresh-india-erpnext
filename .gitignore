@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+*.egg-info/
+node_modules/
+.env
+*.env
+!*.example.env
+backups/
+*.sql
+*.sql.gz
+*.tar
+.DS_Store

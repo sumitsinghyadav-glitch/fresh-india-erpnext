@@ -1,0 +1,13 @@
+# Adds the fresh_theme app (Fresh India desk look) on top of the HRMS image.
+FROM erpnext-v16-india-hrms:latest
+USER frappe
+WORKDIR /home/frappe/frappe-bench
+COPY --chown=frappe:frappe apps/fresh_theme apps/fresh_theme
+RUN env/bin/pip install --no-cache-dir -e apps/fresh_theme \
+ && (grep -qx fresh_theme sites/apps.txt || printf '\nfresh_theme\n' >> sites/apps.txt) \
+ && sed -i '/^$/d' sites/apps.txt
+# Base image keeps assets in ./assets (entrypoint symlinks sites/assets to it at runtime); build into it.
+RUN ln -s /home/frappe/frappe-bench/assets sites/assets \
+ && bench build --app fresh_theme \
+ && rm sites/assets \
+ && test -e assets/fresh_theme/css/fresh_theme.css

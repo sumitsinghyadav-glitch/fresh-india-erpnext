@@ -1,0 +1,55 @@
+/* Fresh India ERP - login & website pages */
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap");
+
+:root {
+  --primary: #f47b20;
+  --primary-color: #f47b20;
+  --btn-primary: #f47b20;
+  --font-stack: "Plus Jakarta Sans", "InterVariable", "Inter", -apple-system, "Segoe UI", sans-serif;
+}
+body { font-family: var(--font-stack); }
+
+/* login page: green brand canvas with a floating card */
+body[data-path="login"] .page-content-wrapper, body[data-path="login"] main,
+body[data-path="login"] .container, body[data-path="login"] .page_content { background: transparent !important; }
+body[data-path="login"] {
+  background-attachment: fixed !important;
+  background:
+    radial-gradient(1200px 600px at 10% -10%, rgba(244, 123, 32, .28), transparent 60%),
+    radial-gradient(900px 600px at 110% 110%, rgba(46, 155, 62, .45), transparent 60%),
+    linear-gradient(135deg, #0b3d22 0%, #166534 55%, #1f7a33 100%) !important;
+  min-height: 100vh;
+}
+body[data-path="login"] .navbar, body[data-path="login"] footer, body[data-path="login"] .web-footer { display: none !important; }
+body[data-path="login"] .for-login, body[data-path="login"] .for-forgot, body[data-path="login"] .for-signup { padding-top: 7vh; }
+
+body[data-path="login"] .page-card {
+  max-width: 420px; margin: 0 auto; background: #fff; border: 0; border-radius: 20px;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, .35); padding: 34px 34px 26px;
+  border-top: 5px solid #f47b20;
+}
+body[data-path="login"] .page-card-head { display: flex; flex-direction: column; align-items: center; text-align: center; padding-bottom: 6px; }
+body[data-path="login"] .page-card-head img.app-logo { max-height: 110px; height: auto; width: auto; margin: 0 auto 12px; }
+body[data-path="login"] .page-card-head-text { align-items: center; }
+body[data-path="login"] .page-card-head h4 { text-align: center; font-weight: 800; color: #114d2b; font-size: 22px; letter-spacing: -.01em; }
+body[data-path="login"] .page-card-subtitle { color: #6b7c73; }
+/* v16 espresso buttons */
+body[data-path="login"] .es-button:not([data-theme]) {
+  --bt-solid-bg: #f47b20; --bt-solid-bg-hover: #e2680f; --bt-solid-bg-active: #c2570c; --bt-solid-fg: #fff;
+  --bt-fill-bg: #f1faf2; --bt-fill-bg-hover: #e3f4e6; --bt-fg: #166534;
+  height: 42px; border-radius: 10px; font-weight: 700;
+}
+body[data-path="login"] .es-button[data-variant="solid"]:not([data-theme]) {
+  background: linear-gradient(180deg, #f47b20, #e2680f); box-shadow: 0 6px 16px rgba(244, 123, 32, .4);
+}
+body[data-path="login"] .form-control {
+  border-radius: 10px; border: 1px solid #dfe7e2; background: #f7faf8; height: 42px;
+}
+body[data-path="login"] .form-control:focus { border-color: #f47b20; box-shadow: 0 0 0 3px rgba(244, 123, 32, .2); background: #fff; }
+body[data-path="login"] .btn-primary, body[data-path="login"] .btn-login {
+  background: linear-gradient(180deg, #f47b20, #e2680f) !important; border: 0 !important; height: 42px;
+  border-radius: 10px; font-weight: 700; letter-spacing: .02em; box-shadow: 0 6px 16px rgba(244, 123, 32, .4);
+}
+body[data-path="login"] .btn-primary:hover { background: linear-gradient(180deg, #e2680f, #c2570c) !important; }
+body[data-path="login"] a { color: #1f7a33; font-weight: 600; }
+body[data-path="login"] .sign-up-message, body[data-path="login"] .login-divider { color: rgba(255, 255, 255, .8); }

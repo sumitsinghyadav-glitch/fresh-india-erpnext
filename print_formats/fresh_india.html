@@ -1,0 +1,291 @@
+{#- Fresh India print format: shared by Sales Order and Sales Invoice (incl. Credit Note). Layout uses tables only (wkhtmltopdf has no flexbox/grid). -#}
+{%- set is_si = doc.doctype == "Sales Invoice" -%}
+{%- set is_return = is_si and doc.is_return -%}
+{#- a draft SO / SI is sent to the customer as a proforma (quote for advance payment), never as a tax invoice -#}
+{%- set is_proforma = doc.docstatus == 0 and not is_return -%}
+{%- set doc_date = doc.posting_date if is_si else doc.transaction_date -%}
+{%- set title = "PROFORMA INVOICE" if is_proforma else ("CREDIT NOTE" if is_return else ("TAX INVOICE" if is_si else "SALES ORDER")) -%}
+{%- set company = frappe.db.get_value("Company", doc.company, ["company_name", "phone_no", "email", "website", "pan"], as_dict=True) or {} -%}
+{%- set bank = frappe.db.get_value("Bank Account", {"company": doc.company, "is_company_account": 1, "is_default": 1}, ["bank", "bank_account_no", "branch_code", "account_name"], as_dict=True) -%}
+
+{%- macro money(v) -%}{{ frappe.utils.fmt_money((v or 0)|abs if doc.is_return else (v or 0), 2, doc.currency) }}{%- endmacro -%}
+{%- macro num(v) -%}{{ frappe.utils.fmt_money((v or 0)|abs if doc.is_return else (v or 0), 2) }}{%- endmacro -%}
+{%- macro addr(s) -%}{{ (s or "").replace("<br>", ",").replace("\n", "").split(",") | map("trim") | reject("equalto", "") | join(", ") }}{%- endmacro -%}
+{%- macro pct(v) -%}{{ "%g"|format(frappe.utils.flt(v, 2)) }}%{%- endmacro -%}
+{%- macro qty(v) -%}{{ frappe.utils.fmt_money((v or 0)|abs, 0) if (v or 0) == (v or 0)|round(0) else frappe.utils.fmt_money((v or 0)|abs, 2) }}{%- endmacro -%}
+
+{%- set has_igst = (doc.items | sum(attribute="igst_amount")) != 0 -%}
+{%- set gst_rates = [] -%}{%- for it in doc.items -%}{%- set _ = gst_rates.append((it.igst_rate or 0) + (it.cgst_rate or 0) + (it.sgst_rate or 0)) -%}{%- endfor -%}
+{%- set single_rate = gst_rates[0] if (gst_rates | unique | list | length) == 1 else none -%}
+{%- set has_disc = namespace(v=false) -%}
+{%- for it in doc.items -%}{%- if it.price_list_rate and it.rate < it.price_list_rate -%}{%- set has_disc.v = true -%}{%- endif -%}{%- endfor -%}
+
+{%- set status = doc.status if doc.docstatus == 1 else ("Proforma" if is_proforma else ("Draft" if doc.docstatus == 0 else "Cancelled")) -%}
+{%- set stamp_class = {"Paid": "ok", "Completed": "ok", "Overdue": "bad", "Cancelled": "bad", "Draft": "muted", "Closed": "muted", "On Hold": "bad", "Return": "muted", "Credit Note Issued": "muted", "Proforma": "warn"}.get(status, "warn") -%}
+
+<div class="fis">
+  {%- if doc.docstatus == 2 or (doc.docstatus == 0 and not is_proforma) -%}<div class="watermark">{{ status | upper }}</div>{%- endif -%}
+
+  <!-- ===== Header ===== -->
+  <table class="hdr">
+    <tr>
+      <td class="logo-cell"><img class="logo" src="__LOGO__" alt="logo"></td>
+      <td class="co">
+        <div class="co-name">{{ company.company_name or doc.company }}</div>
+        <div class="co-addr">{{ addr(doc.company_address_display) }}</div>
+        <div class="co-ids">
+          {%- if doc.company_gstin -%}<b>GSTIN:</b> {{ doc.company_gstin }}{%- endif -%}
+          {%- if company.pan -%} &nbsp;|&nbsp; <b>PAN:</b> {{ company.pan }}{%- endif -%}
+        </div>
+        <div class="co-ids">
+          {%- if company.phone_no -%}&#9742; {{ company.phone_no }}{%- endif -%}
+          {%- if company.email -%} &nbsp;|&nbsp; &#9993; {{ company.email }}{%- endif -%}
+          {%- if company.website -%} &nbsp;|&nbsp; {{ company.website }}{%- endif -%}
+        </div>
+      </td>
+      <td class="title-cell">
+        <div class="doc-title">{{ title }}</div>
+        {%- if is_proforma -%}<div class="doc-sub">Not a tax invoice</div>
+        {%- elif is_si and not is_return -%}<div class="doc-sub">Original for Recipient</div>{%- endif -%}
+        <div class="stamp {{ stamp_class }}">{{ status }}</div>
+      </td>
+    </tr>
+  </table>
+  <div class="bar"><div class="bar-o"></div></div>
+
+  <!-- ===== Document meta ===== -->
+  <table class="meta">
+    <tr>
+      <td><span class="lbl">{{ "Proforma No." if is_proforma else ("Credit Note No." if is_return else ("Invoice No." if is_si else "Order No.")) }}</span><span class="val">{{ doc.name }}</span></td>
+      <td><span class="lbl">{{ "Date" }}</span><span class="val">{{ frappe.utils.formatdate(doc_date) }}</span></td>
+      {%- if is_proforma -%}
+      <td><span class="lbl">Valid Until</span><span class="val">{{ frappe.utils.formatdate(frappe.utils.add_days(doc_date, 15)) }}</span></td>
+      {%- elif is_si -%}
+        {%- if is_return -%}
+      <td><span class="lbl">Against Invoice</span><span class="val">{{ doc.return_against or "-" }}</span></td>
+        {%- else -%}
+      <td><span class="lbl">Due Date</span><span class="val">{{ frappe.utils.formatdate(doc.due_date) }}</span></td>
+        {%- endif -%}
+      {%- else -%}
+      <td><span class="lbl">Delivery By</span><span class="val">{{ frappe.utils.formatdate(doc.delivery_date) }}</span></td>
+      {%- endif -%}
+      <td><span class="lbl">Customer PO</span><span class="val">{{ doc.po_no or "-" }}{% if doc.po_date %} <small>({{ frappe.utils.formatdate(doc.po_date) }})</small>{% endif %}</span></td>
+      <td><span class="lbl">Place of Supply</span><span class="val">{{ doc.place_of_supply or "-" }}</span></td>
+    </tr>
+  </table>
+
+  <!-- ===== Parties ===== -->
+  <table class="parties">
+    <tr>
+      <td class="party">
+        <div class="party-h">Bill To</div>
+        <div class="party-name">{{ doc.customer_name }}</div>
+        <div class="party-addr">{{ addr(doc.address_display) }}</div>
+        <div class="party-ids">
+          {%- if doc.billing_address_gstin -%}<b>GSTIN:</b> {{ doc.billing_address_gstin }}{%- else -%}<b>GST:</b> {{ doc.gst_category or "Unregistered" }}{%- endif -%}
+        </div>
+        {%- if doc.contact_display -%}
+        <div class="party-ids"><b>Contact:</b> {{ doc.contact_display }}{% if doc.contact_mobile %}, {{ doc.contact_mobile }}{% endif %}{% if doc.contact_email %}, {{ doc.contact_email }}{% endif %}</div>
+        {%- endif -%}
+      </td>
+      <td class="gap"></td>
+      <td class="party">
+        <div class="party-h">Ship To</div>
+        <div class="party-name">{{ doc.customer_name }}</div>
+        <div class="party-addr">{{ addr(doc.shipping_address or doc.address_display) }}</div>
+        {%- if is_si and (doc.ewaybill or doc.irn) -%}
+        <div class="party-ids">{% if doc.ewaybill %}<b>E-Way Bill:</b> {{ doc.ewaybill }}{% endif %}{% if doc.irn %}<br><b>IRN:</b> {{ doc.irn }}{% endif %}</div>
+        {%- endif -%}
+      </td>
+    </tr>
+  </table>
+
+  <!-- ===== Items ===== -->
+  <table class="items">
+    <thead>
+      <tr>
+        <th class="c" style="width:3%">#</th>
+        <th style="width:{{ '25%' if has_disc.v else '32%' }}">Item &amp; Description</th>
+        <th class="c" style="width:9%">HSN/SAC</th>
+        <th class="r" style="width:6%">Qty</th>
+        <th class="r" style="width:10%">Rate</th>
+        {%- if has_disc.v -%}<th class="r" style="width:7%">Disc.</th>{%- endif -%}
+        <th class="r" style="width:12%">Taxable</th>
+        <th class="c" style="width:5%">GST</th>
+        <th class="r" style="width:10%">GST Amt</th>
+        <th class="r" style="width:13%">Amount</th>
+      </tr>
+    </thead>
+    <tbody>
+      {%- for it in doc.items -%}
+      {%- set taxable = it.taxable_value or it.net_amount -%}
+      {%- set gst_rate = (it.igst_rate or 0) + (it.cgst_rate or 0) + (it.sgst_rate or 0) -%}
+      {%- set gst_amt = (it.igst_amount or 0) + (it.cgst_amount or 0) + (it.sgst_amount or 0) -%}
+      {%- set disc = (it.price_list_rate - it.rate) if (it.price_list_rate and it.rate < it.price_list_rate) else 0 -%}
+      <tr>
+        <td class="c idx">{{ loop.index }}</td>
+        <td>
+          <div class="it-name">{{ it.item_name }}</div>
+          <div class="it-code">{{ it.item_code }}{% if it.description and it.description|striptags != it.item_name %} &middot; {{ it.description|striptags|truncate(90) }}{% endif %}</div>
+        </td>
+        <td class="c">{{ it.gst_hsn_code or "" }}</td>
+        <td class="r">{{ qty(it.qty) }}<div class="uom">{{ it.uom }}</div></td>
+        <td class="r">{{ num(it.price_list_rate if disc else it.rate) }}</td>
+        {%- if has_disc.v -%}
+        <td class="r disc">{% if disc %}{{ pct(disc / it.price_list_rate * 100) }}<div class="it-code">-{{ num(disc) }}</div>{% else %}-{% endif %}</td>
+        {%- endif -%}
+        <td class="r">{{ num(taxable) }}</td>
+        <td class="c">{{ pct(gst_rate) }}</td>
+        <td class="r">{{ num(gst_amt) }}</td>
+        <td class="r b">{{ num(taxable + gst_amt) }}</td>
+      </tr>
+      {%- endfor -%}
+    </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="3" class="r">Total</td>
+        <td class="r">{{ qty(doc.total_qty) }}</td>
+        <td></td>
+        {%- if has_disc.v -%}<td></td>{%- endif -%}
+        <td class="r">{{ num(doc.items | sum(attribute="taxable_value") or doc.net_total) }}</td>
+        <td></td>
+        <td class="r">{{ num(doc.total_taxes_and_charges) }}</td>
+        <td class="r">{{ num(doc.net_total + doc.total_taxes_and_charges) }}</td>
+      </tr>
+    </tfoot>
+  </table>
+
+  <!-- ===== Summary ===== -->
+  <table class="summary">
+    <tr>
+      <td class="sum-left">
+        <div class="words{{ ' hl' if not is_si else '' }}"><span class="lbl">{{ "Amount in words" if is_si else "Total order value in words" }}</span>{{ doc.in_words }}</div>
+
+        <!-- HSN-wise tax summary -->
+        {%- set hsn = {} -%}
+        {%- for it in doc.items -%}
+          {%- set k = it.gst_hsn_code or "-" -%}
+          {%- if k not in hsn -%}{%- set _ = hsn.update({k: {"taxable": 0, "cgst": 0, "sgst": 0, "igst": 0, "rate": (it.igst_rate or 0) + (it.cgst_rate or 0) + (it.sgst_rate or 0)}}) -%}{%- endif -%}
+          {%- set row = hsn[k] -%}
+          {%- set _ = row.update({"taxable": row.taxable + (it.taxable_value or it.net_amount), "cgst": row.cgst + (it.cgst_amount or 0), "sgst": row.sgst + (it.sgst_amount or 0), "igst": row.igst + (it.igst_amount or 0)}) -%}
+        {%- endfor -%}
+        <table class="hsn">
+          <thead>
+            <tr>
+              <th>HSN/SAC</th><th class="r">Taxable</th><th class="c">Rate</th>
+              {%- if has_igst -%}<th class="r">IGST</th>{%- else -%}<th class="r">CGST</th><th class="r">SGST</th>{%- endif -%}
+              <th class="r">Total Tax</th>
+            </tr>
+          </thead>
+          <tbody>
+            {%- for k, r in hsn.items() -%}
+            <tr>
+              <td>{{ k }}</td><td class="r">{{ num(r.taxable) }}</td><td class="c">{{ pct(r.rate) }}</td>
+              {%- if has_igst -%}<td class="r">{{ num(r.igst) }}</td>{%- else -%}<td class="r">{{ num(r.cgst) }}</td><td class="r">{{ num(r.sgst) }}</td>{%- endif -%}
+              <td class="r">{{ num(r.cgst + r.sgst + r.igst) }}</td>
+            </tr>
+            {%- endfor -%}
+          </tbody>
+        </table>
+
+        {%- if doc.payment_schedule and not is_return -%}
+        <div class="sec-h">Payment Terms{% if doc.payment_terms_template %} &middot; {{ doc.payment_terms_template }}{% endif %}</div>
+        <table class="hsn">
+          <thead><tr><th>Term</th><th class="c">Due Date</th><th class="c">Portion</th><th class="r">Amount</th></tr></thead>
+          <tbody>
+            {%- for p in doc.payment_schedule -%}
+            <tr><td>{{ p.payment_term or "Payment" }}</td><td class="c">{{ frappe.utils.formatdate(p.due_date) }}</td><td class="c">{{ pct(p.invoice_portion) }}</td><td class="r">{{ num(p.payment_amount) }}</td></tr>
+            {%- endfor -%}
+          </tbody>
+        </table>
+        {%- endif -%}
+
+        {%- if (is_si or is_proforma) and bank and not is_return -%}
+        <div class="sec-h">Bank Details for Payment</div>
+        <table class="kv">
+          <tr><td>Account Name</td><td>{{ company.company_name or doc.company }}</td></tr>
+          <tr><td>Bank</td><td>{{ bank.bank }}</td></tr>
+          <tr><td>Account No.</td><td>{{ bank.bank_account_no }}</td></tr>
+          <tr><td>IFSC</td><td>{{ bank.branch_code }}</td></tr>
+        </table>
+        {%- endif -%}
+      </td>
+      <td class="gap"></td>
+      <td class="sum-right">
+        <table class="totals">
+          <tr><td>Sub Total</td><td class="r">{{ money(doc.total) }}</td></tr>
+          {%- if doc.discount_amount -%}
+          <tr class="neg"><td>Discount{% if doc.additional_discount_percentage %} ({{ doc.additional_discount_percentage }}%){% endif %}</td><td class="r">- {{ money(doc.discount_amount) }}</td></tr>
+          {%- endif -%}
+          {%- if not is_si -%}
+          {#- Sales Order: highlight Net Total and the final order value in yellow -#}
+          <tr class="net"><td>Net Total</td><td class="r">{{ money(doc.net_total) }}</td></tr>
+          {%- elif doc.discount_amount -%}
+          <tr><td>Taxable Amount</td><td class="r">{{ money(doc.net_total) }}</td></tr>
+          {%- endif -%}
+          {%- for t in doc.taxes -%}{%- if t.tax_amount -%}
+          <tr><td>{%- set head = t.account_head.split(" - ")[0].replace("Output Tax ", "") -%}{{ head }}{% if single_rate %} @ {{ pct(single_rate if "IGST" in head else single_rate / 2) }}{% endif %}</td><td class="r">{{ money(t.tax_amount) }}</td></tr>
+          {%- endif -%}{%- endfor -%}
+          {%- if doc.rounding_adjustment -%}
+          <tr><td>Rounding</td><td class="r">{{ money(doc.rounding_adjustment) }}</td></tr>
+          {%- endif -%}
+          <tr class="grand{{ ' hl' if not is_si else '' }}"><td>{{ "Credit Amount" if is_return else ("Grand Total" if is_si else "Total Order Value") }}</td><td class="r">{{ money(doc.rounded_total or doc.grand_total) }}</td></tr>
+          {%- if is_si and doc.docstatus == 1 and not is_return -%}
+            {%- if doc.total_advance -%}
+          <tr><td>Advance Adjusted</td><td class="r">- {{ money(doc.total_advance) }}</td></tr>
+            {%- endif -%}
+            {%- set paid = (doc.rounded_total or doc.grand_total) - (doc.total_advance or 0) - doc.outstanding_amount -%}
+            {%- if paid > 0 -%}
+          <tr><td>Amount Received</td><td class="r">- {{ money(paid) }}</td></tr>
+            {%- endif -%}
+          <tr class="due {{ 'zero' if not doc.outstanding_amount else '' }}"><td>Balance Due</td><td class="r">{{ money(doc.outstanding_amount) }}</td></tr>
+          {%- endif -%}
+        </table>
+      </td>
+    </tr>
+  </table>
+
+  <!-- ===== Terms & signatures ===== -->
+  <table class="foot">
+    <tr>
+      <td class="terms">
+        <div class="sec-h">Terms &amp; Conditions</div>
+        {%- if is_proforma -%}
+          <ol class="terms-body">
+            <li>This is a proforma invoice for quotation / advance payment only and is <b>not a tax invoice</b>; no input tax credit can be claimed on it.</li>
+            <li>The GST tax invoice will be issued at the time of supply.</li>
+            <li>Prices and stock are held for 15 days, until the "Valid Until" date above.</li>
+            <li>Please quote the proforma number when making payment to the bank account shown.</li>
+          </ol>
+        {%- elif doc.terms -%}
+          <div class="terms-body">{{ (doc.terms or "") | replace("\n", "<br>") }}</div>
+        {%- elif is_si -%}
+          <ol class="terms-body">
+            <li>Goods once sold will not be taken back except for manufacturing defects reported within 7 days of delivery.</li>
+            <li>Interest @ 18% p.a. will be charged on payments received after the due date.</li>
+            <li>Warranty, where applicable, is provided directly by the manufacturer.</li>
+            <li>Subject to Gurugram jurisdiction.</li>
+          </ol>
+        {%- else -%}
+          <ol class="terms-body">
+            <li>Prices are valid for 15 days from the order date.</li>
+            <li>Delivery is subject to stock availability; partial deliveries may be made.</li>
+            <li>Payment as per the agreed payment terms shown above.</li>
+            <li>Please quote the order number on all correspondence.</li>
+          </ol>
+        {%- endif -%}
+      </td>
+      <td class="sign">
+        {%- if not is_si or is_proforma -%}
+        <div class="sign-box"><div class="sign-line"></div>Customer Acceptance</div>
+        {%- endif -%}
+        <div class="sign-box">
+          <div class="sign-for">For {{ company.company_name or doc.company }}</div>
+          <div class="sign-line"></div>Authorised Signatory
+        </div>
+      </td>
+    </tr>
+  </table>
+
+  <div class="thanks">Thank you for your business! <span class="gen">&nbsp;&middot;&nbsp; {{ "This is a proforma invoice, not a tax invoice." if is_proforma else "This is a computer generated " ~ (title | lower) ~ "." }}</span></div>
+</div>

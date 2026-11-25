@@ -1,0 +1,29 @@
+Report,Reference Document Type
+e-Invoice Summary,Sales Invoice
+Delivered Items To Be Billed,Sales Invoice
+Sales Invoice Trends,Sales Invoice
+Item-wise Sales Register,Sales Invoice
+Sales Register,Sales Invoice
+Sales Analytics,Sales Order
+Item-wise Sales History,Sales Order
+Sales Order Trends,Sales Order
+Sales Order Analysis,Sales Order
+Delayed Item Report,Delivery Note
+Delayed Order Report,Delivery Note
+Delivery Note Trends,Delivery Note
+Purchase Receipt Trends,Purchase Receipt
+Reserved Stock,Stock Reservation Entry
+Serial No Ledger,Stock Ledger Entry
+Batch Item Expiry Status,Stock Ledger Entry
+Available Batch Report,Stock Ledger Entry
+Batch-Wise Balance History,Stock Ledger Entry
+Item Shortage Report,Bin
+Stock Analytics,Stock Entry
+Total Stock Summary,Stock Entry
+Item Balance (Simple),Bin
+Warehouse Wise Stock Balance,Stock Ledger Entry
+Warehouse wise Item Balance Age and Value,Stock Ledger Entry
+Stock Ageing,Item
+Stock Projected Qty,Item
+Stock Ledger,Stock Ledger Entry
+Stock Balance,Stock Ledger Entry

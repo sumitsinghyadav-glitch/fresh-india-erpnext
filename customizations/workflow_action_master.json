@@ -1,0 +1,44 @@
+[
+ {
+  "docstatus": 0,
+  "doctype": "Workflow Action Master",
+  "name": "Approve",
+  "workflow_action_name": "Approve"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow Action Master",
+  "name": "Mark as Allocated",
+  "workflow_action_name": "Mark as Allocated"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow Action Master",
+  "name": "Reject",
+  "workflow_action_name": "Reject"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow Action Master",
+  "name": "Reopen",
+  "workflow_action_name": "Reopen"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow Action Master",
+  "name": "Review",
+  "workflow_action_name": "Review"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow Action Master",
+  "name": "Submit Application",
+  "workflow_action_name": "Submit Application"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow Action Master",
+  "name": "Waitlist",
+  "workflow_action_name": "Waitlist"
+ }
+]

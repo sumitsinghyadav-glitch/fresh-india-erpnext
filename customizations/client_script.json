@@ -1,0 +1,12 @@
+[
+ {
+  "docstatus": 0,
+  "doctype": "Client Script",
+  "dt": "Hostel Registration",
+  "enabled": 1,
+  "module": null,
+  "name": "Hostel Registration Workflow Actions",
+  "script": "\nfrappe.ui.form.on('Hostel Registration', {\n    refresh(frm) {\n        if (frm.doc.status === 'Approved' && !frm.doc.allocated_room) {\n            frm.add_custom_button(__('Allocate Room'), function() {\n                frappe.new_doc('Hostel Allocation', {\n                    registration: frm.doc.name,\n                    hostel: frm.doc.preferred_hostel,\n                    room_type: frm.doc.preferred_room_type,\n                    from_date: frappe.datetime.get_today()\n                });\n            }, __('Actions'));\n        }\n    }\n});\n",
+  "view": "Form"
+ }
+]

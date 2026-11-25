@@ -1,0 +1,425 @@
+Reference Document Type,Role,Level,If user is the owner,Select,Read,Write,Create,Delete,Submit,Cancel,Amend,Report,Export,Print,Email,Share,Import
+GSTIN,Accounts User,0,0,0,1,0,0,0,0,0,0,1,1,0,0,0,0
+GSTIN,System Manager,0,0,0,1,0,0,0,0,0,0,1,1,1,1,1,0
+GSTIN,Accounts Manager,0,0,0,1,0,0,0,0,0,0,1,1,1,1,1,0
+Vehicle,Delivery User,0,0,0,1,0,0,0,0,0,0,1,0,1,0,0,0
+Vehicle,Delivery Manager,0,0,0,1,1,0,0,0,0,0,1,1,1,1,1,0
+Vehicle,Fleet Manager,0,0,0,1,1,1,1,0,0,0,1,1,1,1,1,0
+Vehicle,Fulfillment User,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Vehicle,Stock User,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Driver,Fulfillment User,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Driver,Sales User,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Driver,Delivery Manager,0,0,0,1,1,0,0,0,0,0,1,1,1,1,1,0
+Driver,Delivery User,0,0,0,1,0,0,0,0,0,0,1,0,1,0,0,0
+Driver,Stock Manager,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Driver,Fleet Manager,0,0,0,1,0,0,0,0,0,0,1,1,1,1,1,0
+Driver,Stock User,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Driver,System Manager,0,0,0,1,1,1,1,0,0,0,1,1,1,1,1,0
+Sales Person,Maintenance User,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Sales Person,Stock Manager,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Sales Person,Sales Master Manager,0,0,0,1,1,1,1,0,0,0,1,0,1,1,1,0
+Sales Person,Sales User,0,0,0,1,0,0,0,0,0,0,1,0,1,1,0,0
+Sales Person,Sales Manager,0,0,0,1,0,0,0,0,0,0,1,0,1,1,0,0
+Sales Person,Maintenance Manager,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Sales Person,Delivery Manager,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Sales Person,Accounts User,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Sales Person,Accounts Manager,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Sales Person,Delivery User,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Territory,Sales Manager,0,0,0,1,0,0,0,0,0,0,1,0,1,1,0,0
+Territory,Stock User,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0
+Territory,Sales Master Manager,0,0,0,1,1,1,1,0,0,0,1,1,1,1,1,1
+Territory,Delivery User,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Territory,Customer,0,0,1,0,0,0,0,0,0,0,1,1,1,1,1,0
+Territory,Website Manager,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Territory,Maintenance Manager,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Territory,Accounts User,0,0,0,1,0,0,0,0,0,0,1,0,1,1,1,0
+Territory,Maintenance User,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0
+Territory,Delivery Manager,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Territory,Sales User,0,0,0,1,0,0,0,0,0,0,1,0,1,1,0,0
+Customer Group,Sales Master Manager,1,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0
+Customer Group,Customer,0,0,1,0,0,0,0,0,0,0,1,1,1,1,1,0
+Customer Group,Sales Master Manager,0,0,0,1,1,1,1,0,0,0,1,1,1,1,1,1
+Customer Group,Accounts User,0,0,0,1,0,0,0,0,0,0,1,0,1,1,1,0
+Customer Group,Sales User,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0
+Customer Group,Purchase Manager,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Customer Group,Maintenance User,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Customer Group,Website Manager,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Customer Group,Item Manager,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Customer Group,Maintenance Manager,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Customer Group,Sales Manager,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0
+Customer Group,Sales Manager,0,0,0,1,0,0,0,0,0,0,1,0,1,1,0,0
+Customer Group,Sales User,0,0,0,1,0,0,0,0,0,0,1,0,1,1,0,0
+Shipping Rule,Purchase Manager,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Shipping Rule,Delivery Manager,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Shipping Rule,Accounts Manager,0,0,0,1,1,1,1,0,0,0,1,1,1,1,1,1
+Shipping Rule,Sales Master Manager,0,0,0,1,1,1,1,0,0,0,1,1,1,1,1,1
+Shipping Rule,Manufacturing Manager,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Shipping Rule,Maintenance Manager,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Shipping Rule,Stock Manager,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Shipping Rule,Purchase User,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Shipping Rule,Sales User,0,0,0,1,0,0,0,0,0,0,1,0,1,1,0,0
+Shipping Rule,Delivery User,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Shipping Rule,Accounts User,0,0,0,1,0,0,0,0,0,0,1,0,1,1,0,0
+Shipping Rule,Maintenance User,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Item Tax Template,Stock Manager,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Item Tax Template,Manufacturing Manager,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Item Tax Template,Maintenance User,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Item Tax Template,Accounts User,0,0,0,1,0,0,0,0,0,0,1,1,1,1,1,0
+Item Tax Template,Delivery User,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Item Tax Template,Delivery Manager,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Item Tax Template,Item Manager,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Item Tax Template,Stock User,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Item Tax Template,Purchase User,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Item Tax Template,Sales Manager,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Item Tax Template,Purchase Manager,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Item Tax Template,Sales User,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Item Tax Template,Accounts Manager,0,0,0,1,1,1,1,0,0,0,1,1,1,1,1,0
+Item Tax Template,System Manager,0,0,0,1,1,1,1,0,0,0,1,1,1,1,1,0
+Item Tax Template,Maintenance Manager,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Purchase Taxes and Charges Template,Purchase User,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0
+Purchase Taxes and Charges Template,Stock User,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Purchase Taxes and Charges Template,Purchase Master Manager,0,0,0,1,1,1,1,0,0,0,1,0,1,1,1,0
+Purchase Taxes and Charges Template,Accounts Manager,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Purchase Taxes and Charges Template,Manufacturing Manager,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Purchase Taxes and Charges Template,Accounts User,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Purchase Taxes and Charges Template,Stock Manager,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Purchase Taxes and Charges Template,Purchase Manager,0,0,0,1,0,0,0,0,0,0,1,0,1,1,0,0
+Sales Taxes and Charges Template,Sales User,0,0,0,1,0,0,0,0,0,0,1,0,1,1,0,0
+Sales Taxes and Charges Template,Maintenance User,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Sales Taxes and Charges Template,Purchase Manager,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Sales Taxes and Charges Template,Stock Manager,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Sales Taxes and Charges Template,Stock User,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Sales Taxes and Charges Template,Sales Master Manager,0,0,0,1,1,1,1,0,0,0,1,0,1,1,1,0
+Sales Taxes and Charges Template,Maintenance Manager,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Sales Taxes and Charges Template,Delivery Manager,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Sales Taxes and Charges Template,Accounts User,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Sales Taxes and Charges Template,Sales Manager,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Sales Taxes and Charges Template,Manufacturing User,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Sales Taxes and Charges Template,Accounts Manager,0,0,0,1,1,1,1,0,0,0,1,0,1,1,1,0
+Sales Taxes and Charges Template,Manufacturing Manager,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Sales Taxes and Charges Template,Purchase User,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Sales Taxes and Charges Template,Delivery User,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Brand,Website Manager,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Brand,Stock User,0,0,0,1,0,0,0,0,0,0,1,0,1,1,0,0
+Brand,Sales User,0,0,0,1,0,0,0,0,0,0,1,0,1,1,0,0
+Brand,Item Manager,0,0,0,1,1,1,1,0,0,0,1,1,1,1,1,1
+Brand,Accounts User,0,0,0,1,0,0,0,0,0,0,1,0,1,1,0,0
+Brand,Purchase User,0,0,0,1,0,0,0,0,0,0,1,0,1,1,0,0
+Item Group,Sales User,0,0,0,1,0,0,0,0,0,0,1,0,1,1,0,0
+Item Group,Accounts User,0,0,0,1,0,0,0,0,0,0,1,0,1,1,0,0
+Item Group,Stock Manager,0,0,0,1,0,0,0,0,0,0,1,1,1,1,0,0
+Item Group,Stock User,0,0,0,1,0,0,0,0,0,0,1,0,1,1,0,0
+Item Group,Purchase User,0,0,0,1,0,0,0,0,0,0,1,0,1,1,0,0
+Item Group,Item Manager,0,0,0,1,1,1,1,0,0,0,1,1,1,1,1,1
+Item Group,Desk User,0,0,1,0,0,0,0,0,0,0,1,1,1,1,1,0
+UOM,Stock Manager,0,0,0,1,0,0,0,0,0,0,1,0,1,1,0,0
+UOM,Item Manager,0,0,0,1,1,1,1,0,0,0,1,1,1,1,1,1
+UOM,Sales User,0,0,0,1,0,0,0,0,0,0,1,1,1,1,1,0
+UOM,Desk User,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+UOM,Stock User,0,0,0,1,0,0,0,0,0,0,1,0,1,1,0,0
+UOM,Sales Manager,0,0,0,1,0,0,0,0,0,0,1,1,1,1,1,0
+Pricing Rule,Website Manager,0,0,0,1,1,1,1,0,0,0,1,0,0,0,1,0
+Pricing Rule,Purchase Manager,0,0,0,1,1,1,1,0,0,0,1,0,0,0,1,0
+Pricing Rule,Sales Manager,0,0,0,1,1,1,1,0,0,0,1,0,0,0,1,0
+Pricing Rule,System Manager,0,0,0,1,1,1,1,0,0,0,1,1,0,0,1,1
+Pricing Rule,Accounts Manager,0,0,0,1,1,1,1,0,0,0,1,1,0,0,1,1
+Price List,Delivery User,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Price List,Delivery Manager,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Price List,Maintenance User,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Price List,Accounts Manager,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Price List,Maintenance Manager,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Price List,Manufacturing User,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0
+Price List,Sales User,0,0,0,1,0,0,0,0,0,0,1,0,0,0,0,0
+Price List,Stock Manager,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Price List,Sales Master Manager,0,0,0,1,1,1,1,0,0,0,1,1,0,0,1,1
+Price List,Purchase User,0,0,0,1,0,0,0,0,0,0,1,0,0,0,0,0
+Price List,Website Manager,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Price List,Accounts User,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Price List,Purchase Master Manager,0,0,0,1,1,1,1,0,0,0,1,0,0,0,1,0
+Stock Entry Type,Manufacturing Manager,0,0,0,1,1,1,1,0,0,0,1,1,1,1,1,0
+Stock Entry Type,System Manager,0,0,0,1,1,1,1,0,0,0,1,1,1,1,1,0
+Stock Entry Type,Stock Manager,0,0,0,1,1,1,1,0,0,0,1,1,1,1,1,0
+Stock Entry Type,Stock User,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0
+Product Bundle,Maintenance Manager,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Product Bundle,Sales User,0,0,0,1,1,1,1,0,0,0,1,0,1,1,1,0
+Product Bundle,Accounts User,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Product Bundle,Accounts Manager,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Product Bundle,Stock User,0,0,0,1,0,0,0,0,0,0,1,0,1,1,0,0
+Product Bundle,Delivery Manager,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Product Bundle,Stock Manager,0,0,0,1,1,1,1,0,0,0,1,0,1,1,1,0
+Product Bundle,Delivery User,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Product Bundle,Maintenance User,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Item Price,Purchase Master Manager,0,0,0,1,1,1,1,0,0,0,1,1,1,1,1,1
+Item Price,Sales Master Manager,0,0,0,1,1,1,1,0,0,0,1,1,1,1,1,1
+Item,Purchase User,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0
+Item,Sales User,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0
+Item,Desk User,0,0,1,0,0,0,0,0,0,0,1,1,1,1,1,0
+Item,Stock User,0,0,0,1,0,0,0,0,0,0,1,0,1,1,0,0
+Item,Accounts User,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0
+Item,Maintenance User,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0
+Item,Stock Manager,0,0,0,1,0,0,0,0,0,0,1,0,1,1,0,0
+Item,Item Manager,0,0,0,1,1,1,1,0,0,0,1,1,1,1,1,1
+Item,Manufacturing User,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0
+Serial No,Delivery Manager,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Serial No,Item Manager,0,0,0,1,1,1,1,0,0,0,1,0,1,1,1,0
+Serial No,Stock Manager,0,0,0,1,1,1,1,0,0,0,1,1,1,1,0,1
+Serial No,Delivery User,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Serial No,Quality Manager,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Serial No,Stock User,0,0,0,1,0,0,0,0,0,0,1,0,1,1,0,0
+Serial No,Maintenance User,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Stock Reservation Entry,Purchase Manager,0,0,0,1,1,1,1,1,1,0,1,1,1,1,1,0
+Stock Reservation Entry,Stock User,0,0,0,1,1,1,1,1,1,0,1,1,1,1,1,0
+Stock Reservation Entry,Stock Manager,0,0,0,1,1,1,1,1,1,0,1,1,1,1,1,0
+Stock Reservation Entry,Sales User,0,0,0,1,1,1,1,1,1,0,1,1,1,1,1,0
+Stock Reservation Entry,Purchase User,0,0,0,1,1,1,1,1,1,0,1,1,1,1,1,0
+Stock Reservation Entry,System Manager,0,0,0,1,1,1,1,1,1,0,1,1,1,1,1,0
+Stock Reservation Entry,Sales Manager,0,0,0,1,1,1,1,1,1,0,1,1,1,1,1,0
+Bin,Stock User,0,0,0,1,0,0,0,0,0,0,1,0,1,1,0,0
+Bin,Purchase User,0,0,0,1,0,0,0,0,0,0,1,0,1,1,0,0
+Bin,Sales Manager,0,0,0,1,0,0,0,0,0,0,1,0,0,0,0,0
+Bin,Purchase Manager,0,0,0,1,0,0,0,0,0,0,1,0,0,0,0,0
+Bin,Sales User,0,0,0,1,0,0,0,0,0,0,1,0,1,1,0,0
+Bin,Stock Manager,0,0,0,1,0,0,0,0,0,0,1,0,0,0,0,0
+Stock Ledger Entry,Stock User,0,0,0,1,0,0,0,0,0,0,1,1,1,0,0,0
+Stock Ledger Entry,Accounts Manager,0,0,0,1,0,0,0,0,0,0,1,1,0,0,0,0
+Material Request,Maintenance User,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Material Request,Delivery User,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Material Request,Stock Manager,0,0,0,1,1,1,1,1,1,1,1,0,1,1,1,0
+Material Request,Stock User,0,0,0,1,1,1,1,1,1,1,1,0,1,1,1,0
+Material Request,Manufacturing Manager,0,0,0,1,0,0,0,0,0,0,1,0,0,0,0,0
+Material Request,Purchase User,0,0,0,1,1,1,1,1,1,1,1,0,1,1,1,0
+Material Request,Purchase Manager,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1
+Material Request,Delivery Manager,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Purchase Order,Purchase Manager,1,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0
+Purchase Order,Purchase User,0,0,0,1,1,1,1,1,1,1,1,0,1,1,1,0
+Purchase Order,Stock User,0,0,0,1,0,0,0,0,0,0,1,0,0,0,0,0
+Purchase Order,Purchase Manager,0,0,0,1,1,1,1,1,1,1,1,0,1,1,1,0
+e-Invoice Log,Accounts User,0,0,0,1,0,0,1,0,0,0,1,1,1,1,1,0
+e-Invoice Log,Accounts Manager,0,0,0,1,0,0,1,0,0,0,1,1,1,1,1,0
+e-Waybill Log,Accounts Manager,0,0,0,1,0,0,1,0,0,0,1,1,1,1,1,0
+e-Waybill Log,Stock Manager,0,1,0,1,0,0,1,0,0,0,1,1,1,1,1,0
+e-Waybill Log,Accounts User,0,0,0,1,0,0,1,0,0,0,1,1,1,1,1,0
+e-Waybill Log,Stock User,0,1,0,1,0,0,1,0,0,0,1,1,1,1,1,0
+Delivery Note,Accounts User,0,0,0,1,0,0,0,0,0,0,1,0,0,0,0,0
+Delivery Note,Stock User,0,0,0,1,1,1,1,1,1,1,1,0,1,1,1,0
+Delivery Note,Sales User,0,0,0,1,1,1,1,1,1,1,1,0,1,1,1,0
+Delivery Note,Stock Manager,1,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0
+Delivery Note,Delivery Manager,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,0
+Delivery Note,Delivery User,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,0
+Delivery Note,Stock Manager,0,0,0,1,1,1,1,1,1,1,1,0,1,1,1,0
+Packing Slip,Sales User,0,0,0,1,1,1,1,1,1,1,1,0,1,1,1,0
+Packing Slip,Item Manager,0,0,0,1,1,1,1,1,1,1,1,0,1,1,1,0
+Packing Slip,Stock Manager,0,0,0,1,1,1,1,1,1,1,1,0,1,1,1,0
+Packing Slip,Sales Manager,0,0,0,1,1,1,1,1,1,1,1,0,1,1,1,0
+Packing Slip,Stock User,0,0,0,1,1,1,1,1,1,1,1,0,1,1,1,0
+Pick List,Stock User,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,0
+Pick List,Manufacturing Manager,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,0
+Pick List,Manufacturing User,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,0
+Pick List,Stock Manager,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,0
+Sales Order,Maintenance User,0,0,0,1,1,1,1,1,1,1,1,0,1,1,1,0
+Sales Order,Stock User,0,0,0,1,0,0,0,0,0,0,1,0,0,0,0,0
+Sales Order,Sales User,0,0,0,1,1,1,1,1,1,1,1,0,1,1,1,0
+Sales Order,Sales Manager,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1
+Sales Order,Projects User,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Sales Order,Projects Manager,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Sales Order,Sales Manager,1,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0
+Sales Order,Accounts User,0,0,0,1,0,0,0,0,0,0,0,0,1,1,0,0
+Batch,Manufacturing User,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Batch,Delivery Manager,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Batch,Maintenance Manager,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Batch,Quality Manager,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Batch,Sales User,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Batch,Purchase Master Manager,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Batch,Item Manager,0,0,0,1,1,1,1,0,0,0,1,1,1,1,1,1
+Batch,Manufacturing Manager,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Batch,Sales Master Manager,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Batch,Accounts Manager,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Batch,Delivery User,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Batch,Sales Manager,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Batch,Maintenance User,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Batch,Accounts User,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Serial and Batch Bundle,Quality Manager,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Serial and Batch Bundle,Stock User,0,0,0,1,1,1,1,1,1,0,1,1,1,1,1,0
+Serial and Batch Bundle,Stock Manager,0,0,0,1,1,1,1,1,1,0,1,1,1,1,1,0
+Serial and Batch Bundle,Manufacturing Manager,0,0,0,1,1,1,1,1,1,0,1,1,1,1,1,0
+Serial and Batch Bundle,Sales Manager,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Serial and Batch Bundle,Manufacturing User,0,0,0,1,1,1,1,1,1,0,1,1,1,1,1,0
+Serial and Batch Bundle,Purchase Manager,0,0,0,1,1,1,1,1,1,0,1,1,1,1,1,0
+Serial and Batch Bundle,Delivery User,0,0,0,1,1,1,1,1,1,0,1,1,1,1,1,0
+Serial and Batch Bundle,Maintenance User,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Serial and Batch Bundle,System Manager,0,0,0,1,1,1,1,1,1,0,1,1,1,1,1,0
+Serial and Batch Bundle,Maintenance Manager,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Serial and Batch Bundle,Accounts User,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Serial and Batch Bundle,Purchase User,0,0,0,1,1,1,1,1,1,0,1,1,1,1,1,0
+Serial and Batch Bundle,Accounts Manager,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Serial and Batch Bundle,Delivery Manager,0,0,0,1,1,1,1,1,1,0,1,1,1,1,1,0
+Serial and Batch Bundle,Sales User,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Stock Entry,Manufacturing User,0,0,0,1,1,1,1,1,1,1,1,0,1,1,1,0
+Stock Entry,Manufacturing Manager,0,0,0,1,1,1,1,1,1,1,1,0,1,1,1,0
+Stock Entry,Stock User,0,0,0,1,1,1,1,1,1,1,1,0,1,1,1,0
+Stock Entry,Stock Manager,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1
+Purchase Receipt,Delivery Manager,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Purchase Receipt,Accounts User,0,0,0,1,0,0,0,0,0,0,1,0,0,0,0,0
+Purchase Receipt,Purchase User,0,0,0,1,1,1,1,1,1,1,1,0,1,1,1,0
+Purchase Receipt,Delivery User,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Purchase Receipt,Stock Manager,1,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0
+Purchase Receipt,Stock Manager,0,0,0,1,1,1,1,1,1,1,1,0,1,1,1,0
+Purchase Receipt,Quality Manager,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Purchase Receipt,Stock User,0,0,0,1,1,1,1,1,1,1,1,0,1,1,1,0
+Warehouse,Employee Self Service,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0
+Payment Terms Template,Employee Self Service,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0
+Customer,Employee Self Service,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0
+Terms and Conditions,Employee Self Service,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0
+Contact,Employee Self Service,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0
+Cost Center,Employee Self Service,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0
+Account,Employee Self Service,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0
+Sales Invoice,Employee Self Service,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0
+Supplier,Employee Self Service,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0
+Company,Employee Self Service,0,0,0,1,0,0,0,0,0,0,0,1,1,1,1,0
+Address,Accounts Manager,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0
+Warehouse,Manufacturing User,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0
+Warehouse,Item Manager,0,0,0,1,1,1,1,0,0,0,1,1,1,1,1,1
+Warehouse,Delivery Manager,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Warehouse,Stock User,0,0,0,1,0,0,0,0,0,0,1,0,1,1,0,0
+Warehouse,Quality Manager,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Warehouse,HR Manager,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Warehouse,Purchase User,0,0,0,1,0,0,0,0,0,0,1,0,1,1,0,0
+Warehouse,Maintenance Manager,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Warehouse,Accounts User,0,0,0,1,0,0,0,0,0,0,1,0,1,1,0,0
+Warehouse,Website Manager,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Warehouse,Maintenance User,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Warehouse,Delivery User,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Warehouse,Sales User,0,0,0,1,0,0,0,0,0,0,1,0,1,1,0,0
+Sales Invoice,Accounts User,0,0,0,1,1,1,0,1,0,1,1,0,1,1,1,0
+Sales Invoice,All,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0
+Sales Invoice,Accounts Manager,1,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0
+Sales Invoice,Accounts Manager,0,0,0,1,1,1,1,1,1,1,1,0,1,1,1,0
+Company,Accounts Manager,0,0,0,1,1,1,1,0,0,0,1,1,1,1,1,0
+Company,Sales Manager,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0
+Company,Employee,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0
+Company,Projects User,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0
+Company,HR Manager,0,0,0,1,1,0,0,0,0,0,1,0,0,0,0,0
+Company,HR User,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Company,Sales User,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0
+Company,Purchase User,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0
+Company,Desk User,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Company,Stock User,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0
+Company,Accounts User,0,0,0,1,0,0,0,0,0,0,0,0,1,1,0,0
+Company,System Manager,0,0,0,1,1,1,1,0,0,0,1,0,1,1,1,0
+Company,Auditor,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Payment Terms Template,HR Manager,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Payment Terms Template,System Manager,0,0,0,1,1,1,1,0,0,0,1,1,1,1,1,0
+Payment Terms Template,Purchase Manager,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0
+Payment Terms Template,Sales Manager,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0
+Payment Terms Template,Purchase Master Manager,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Payment Terms Template,Sales User,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0
+Payment Terms Template,Sales Master Manager,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Payment Terms Template,Purchase User,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0
+Payment Terms Template,Maintenance User,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0
+Payment Terms Template,Accounts Manager,0,0,0,1,1,1,1,0,0,0,1,1,1,1,1,0
+Payment Terms Template,Maintenance Manager,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0
+Payment Terms Template,Accounts User,0,0,0,1,1,1,1,0,0,0,1,1,1,1,1,0
+Customer,Sales Master Manager,1,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0
+Customer,Purchase Master Manager,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Customer,Accounts User,0,0,0,1,0,0,0,0,0,0,1,0,1,1,0,0
+Customer,Delivery Manager,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Customer,Stock User,0,0,0,1,0,0,0,0,0,0,1,0,1,1,0,0
+Customer,Quality Manager,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Customer,Sales Master Manager,0,0,0,1,1,1,1,0,0,0,1,1,1,1,1,1
+Customer,Maintenance Manager,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Customer,Maintenance User,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Customer,Projects Manager,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Customer,HR Manager,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Customer,Fulfillment User,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Customer,Stock Manager,0,0,0,1,0,0,0,0,0,0,1,0,1,1,0,0
+Customer,Projects User,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Customer,Sales Manager,0,0,0,1,0,0,0,0,0,0,1,0,1,1,0,0
+Customer,Sales User,0,0,0,1,1,1,0,0,0,0,1,0,1,1,1,0
+Customer,Employee,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Customer,Website Manager,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Customer,HR User,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Customer,Sales User,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0
+Customer,Support Team,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Customer,Accounts Manager,0,0,0,1,0,0,0,0,0,0,1,0,1,1,0,0
+Customer,Delivery User,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Account,Delivery Manager,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Account,Accounts Manager,0,0,0,1,1,1,1,0,0,0,1,1,1,1,1,1
+Account,Maintenance Manager,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Account,Manufacturing User,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Account,Sales User,0,0,0,1,0,0,0,0,0,0,1,0,1,1,0,0
+Account,Manufacturing Manager,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Account,Sales Master Manager,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Account,Purchase Master Manager,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Account,Stock Manager,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Account,Auditor,0,0,0,1,0,0,0,0,0,0,1,0,1,1,0,0
+Account,Quality Manager,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Account,HR User,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Account,HR Manager,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Account,Purchase User,0,0,0,1,0,0,0,0,0,0,1,0,1,1,0,0
+Account,Delivery User,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Account,Accounts User,0,0,0,1,1,1,1,0,0,0,1,1,1,1,1,1
+Account,Maintenance User,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Cost Center,Maintenance Manager,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Cost Center,Maintenance User,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Cost Center,Manufacturing Manager,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Cost Center,Delivery Manager,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Cost Center,HR Manager,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Cost Center,Accounts User,0,0,0,1,0,0,0,0,0,0,1,0,1,1,0,0
+Cost Center,Accounts Manager,0,0,0,1,1,1,1,0,0,0,1,0,1,1,1,0
+Cost Center,HR User,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Cost Center,Auditor,0,0,0,1,0,0,0,0,0,0,1,1,0,0,0,0
+Cost Center,Purchase Master Manager,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Cost Center,Delivery User,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Cost Center,Stock Manager,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Cost Center,Purchase User,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0
+Cost Center,Quality Manager,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Cost Center,Employee,0,0,1,0,0,0,0,0,0,0,1,1,1,1,1,0
+Cost Center,Sales Master Manager,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Cost Center,Manufacturing User,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Cost Center,Sales User,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0
+Cost Center,Projects User,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Cost Center,Projects Manager,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Contact,Purchase User,0,0,0,1,1,1,0,0,0,0,1,0,1,1,1,0
+Contact,Maintenance Manager,0,0,0,1,1,1,0,0,0,0,1,0,1,1,1,0
+Contact,Maintenance User,0,0,0,1,1,1,0,0,0,0,1,0,1,1,1,0
+Contact,Accounts User,0,0,0,1,1,1,0,0,0,0,1,0,1,1,1,0
+Contact,Sales User,0,0,0,1,1,1,0,0,0,0,1,0,1,1,1,0
+Contact,Sales Manager,0,0,0,1,1,1,0,0,0,0,1,0,1,1,1,0
+Contact,Accounts Manager,0,0,0,1,1,1,0,0,0,0,1,0,1,1,1,0
+Contact,Purchase Master Manager,0,0,0,1,1,1,1,0,0,0,1,0,1,1,1,0
+Contact,System Manager,0,0,0,1,1,1,1,0,0,0,1,1,1,1,1,1
+Contact,Purchase Manager,0,0,0,1,1,1,0,0,0,0,1,0,1,1,1,0
+Contact,Sales Master Manager,0,0,0,1,1,1,1,0,0,0,1,0,1,1,1,0
+Contact,All,0,1,0,1,1,1,1,0,0,0,1,0,0,0,0,0
+Address,Purchase User,0,0,0,1,1,1,0,0,0,0,1,0,1,1,1,0
+Address,System Manager,0,0,0,1,1,1,1,0,0,0,1,1,1,1,1,1
+Address,All,0,1,0,1,1,1,0,0,0,0,0,1,1,0,0,0
+Address,Maintenance User,0,0,0,1,1,1,0,0,0,0,1,0,1,1,1,0
+Address,Sales User,0,0,0,1,1,1,0,0,0,0,1,0,1,1,1,0
+Address,Accounts User,0,0,0,1,1,1,0,0,0,0,1,0,1,1,1,0
+Terms and Conditions,Purchase User,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0
+Terms and Conditions,Delivery User,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Terms and Conditions,HR User,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Terms and Conditions,Accounts Manager,0,0,0,1,1,1,1,0,0,0,1,0,1,1,1,0
+Terms and Conditions,Accounts User,0,0,0,1,0,0,0,0,0,0,1,1,1,1,1,0
+Terms and Conditions,System Manager,0,0,0,1,1,1,1,0,0,0,1,0,1,1,1,0
+Terms and Conditions,Sales Master Manager,0,0,0,1,1,1,1,0,0,0,1,1,1,1,1,1
+Terms and Conditions,Maintenance Manager,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Terms and Conditions,Stock User,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0
+Terms and Conditions,Delivery Manager,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Terms and Conditions,Maintenance User,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Terms and Conditions,Sales User,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0
+Terms and Conditions,HR Manager,0,0,0,1,1,1,0,0,0,0,0,0,0,0,0,0
+Supplier,Stock User,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0
+Supplier,Purchase Manager,0,0,0,1,1,0,0,0,0,0,1,0,1,1,0,0
+Supplier,Stock Manager,0,0,0,1,0,0,0,0,0,0,1,0,1,1,0,0
+Supplier,Accounts Manager,0,0,0,1,0,0,0,0,0,0,1,0,1,1,0,0
+Supplier,Delivery Manager,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Supplier,Sales Master Manager,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Supplier,Website Manager,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Supplier,Maintenance User,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Supplier,Accounts User,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0
+Supplier,Purchase User,0,0,0,1,0,0,0,0,0,0,1,0,1,1,0,0
+Supplier,Quality Manager,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Supplier,Purchase Master Manager,0,0,0,1,1,1,1,0,0,0,1,1,1,1,1,1
+Supplier,Delivery User,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
